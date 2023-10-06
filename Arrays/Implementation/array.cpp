@@ -7,7 +7,7 @@ class Array{
     private:
     //values
         int size;
-        int * A;
+        int  *A;
         int index=0;
     
     public:
@@ -132,10 +132,32 @@ class Array{
 
 
     //Reverse Array
-    void reverseArray()
+    void reverseArray(int i,int j)
     {
         
+        while(i<j)
+        {
+            swap(A[i++],A[j--]);
+        }
     }
+
+    //Rotate right
+    void rotateRight(int i)
+    {
+         reverseArray(0,index-1);
+         reverseArray(0,i-1);
+         reverseArray(i,index-1);
+    }
+
+    //Rotate left
+    void rotateLeft(int i)
+    {
+        reverseArray(0,index-1);
+         reverseArray(0,index-i-1);
+         reverseArray(index-i,index-1);
+    }
+
+
 
 
 
@@ -149,7 +171,8 @@ int main()
     arr.insert(11);
     arr.insert(21);
     arr.insert(1);
-    arr.deleteElement(11);
+    arr.display();
+    arr.rotateLeft(1);
     arr.display();
 
     
