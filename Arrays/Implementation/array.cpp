@@ -152,13 +152,32 @@ class Array{
     //Rotate left
     void rotateLeft(int i)
     {
-        reverseArray(0,index-1);
+         reverseArray(0,index-1);
          reverseArray(0,index-i-1);
          reverseArray(index-i,index-1);
     }
+    
 
+    void printSubArrays()
+    {
+        if(index==0)
+        {
+            cout<<"Empty Array";
+        }
 
+        for(int i=0;i<index;i++)
+        {
+            for(int j=i;j<index;j++)
+            {
+                 for(int k=i;k<=j;k++)
+                 {
+                    cout<<A[k]<<" ";
+                 }
 
+                 cout<<endl;
+            }
+        }
+    }
 
 
 };
@@ -171,9 +190,8 @@ int main()
     arr.insert(11);
     arr.insert(21);
     arr.insert(1);
-    arr.display();
-    arr.rotateLeft(1);
-    arr.display();
+    
+    arr.printSubArrays();
 
     
 
