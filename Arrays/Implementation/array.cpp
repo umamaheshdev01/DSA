@@ -157,7 +157,7 @@ class Array{
          reverseArray(index-i,index-1);
     }
     
-
+    //Print all subarrays
     void printSubArrays()
     {
         if(index==0)
