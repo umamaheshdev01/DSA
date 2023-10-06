@@ -3,8 +3,9 @@ using namespace std;
 
 class Array{
 
-    //values
+    
     private:
+    //values
         int size;
         int * A;
         int index=0;
@@ -35,7 +36,7 @@ class Array{
     {
         if(index==0)
         {
-            cout<<"Array is empty";
+            cout<<"Array is empty"<<endl;
             return;
         }
 
@@ -46,6 +47,36 @@ class Array{
 
         cout<<endl;
     }
+
+    //Linear Search
+    void linearSearch(int x)
+    {
+        for(int i=0;i<index;i++)
+        {
+            if(A[i]==x)
+            {
+                cout<<"The element found at index "<<i<<endl;
+                return;
+            }
+        }
+
+        cout<<"Element not found"<<endl;
+    }
+
+    //Sort Array
+    void sortArray()
+    {
+        sort(A,A+index);
+    }
+
+
+    //Binary Search
+    void binarySearch()
+    {
+        this->sortArray();
+    }
+
+
 
 };
 
