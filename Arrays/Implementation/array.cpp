@@ -71,9 +71,33 @@ class Array{
 
 
     //Binary Search
-    void binarySearch()
+    void binarySearch(int k)
     {
         this->sortArray();
+
+        int low = 0;
+        int high = index-1;
+
+        while(low<=high)
+        {
+            int mid = (low+high)/2;
+
+            if(A[mid]==k)
+            {
+                cout<<"The element found at index "<<mid<<endl;
+                return;
+            }
+            else if(A[mid]>k)
+            {
+                high=mid-1;
+            }
+            else
+            {
+                low=mid+1;
+            }
+        }
+
+        cout<<"The element not found";
     }
 
 
