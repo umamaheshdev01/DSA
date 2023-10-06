@@ -49,18 +49,19 @@ class Array{
     }
 
     //Linear Search
-    void linearSearch(int x)
+    int linearSearch(int x)
     {
         for(int i=0;i<index;i++)
         {
             if(A[i]==x)
             {
                 cout<<"The element found at index "<<i<<endl;
-                return;
+                return i;
             }
         }
 
         cout<<"Element not found"<<endl;
+        return -1;
     }
 
     //Sort Array
@@ -71,9 +72,10 @@ class Array{
 
 
     //Binary Search
-    void binarySearch(int k)
+    int binarySearch(int k)
     {
-        this->sortArray();
+        //This works only when sorted
+        sortArray();
 
         int low = 0;
         int high = index-1;
@@ -85,7 +87,7 @@ class Array{
             if(A[mid]==k)
             {
                 cout<<"The element found at index "<<mid<<endl;
-                return;
+                return mid;
             }
             else if(A[mid]>k)
             {
@@ -97,7 +99,42 @@ class Array{
             }
         }
 
-        cout<<"The element not found";
+        cout<<"The element not found"<<endl;
+        return -1;
+    }
+
+    
+    //Delete element
+    void deleteElement(int x)
+    {
+        int ind = linearSearch(x);
+
+        if(index==0)
+        {
+            cout<<"Underflow"<<endl;
+            return;
+        }
+
+        if(index==-1)
+        {
+            cout<<"Element Not found"<<endl;
+            return;
+        }
+
+
+        for(int i=ind;i<index-1;i++)
+        {
+            A[i]=A[i+1];
+        }
+
+        index--;
+    }
+
+
+    //Reverse Array
+    void reverseArray()
+    {
+        
     }
 
 
@@ -107,6 +144,14 @@ class Array{
 int main()
 {
     Array arr(10);
+    arr.insert(33);
+    arr.insert(10);
+    arr.insert(11);
+    arr.insert(21);
+    arr.insert(1);
+    arr.deleteElement(11);
     arr.display();
+
+    
 
 }
