@@ -103,6 +103,12 @@ class Array{
         return -1;
     }
 
+    //length
+    int length()
+    {
+        return index;
+    }
+
     
     //Delete element
     void deleteElement(int x)
