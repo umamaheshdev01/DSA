@@ -37,8 +37,12 @@ int main()
     k.back(); //last element
     k.empty(); //empty checkup
     k.at(2); //get
-    cout<<*max_element(k.begin(),k.end());
-    cout<<*min_element(k.begin(),k.end());
+    cout<<*max_element(k.begin(),k.end()); //max
+    cout<<*min_element(k.begin(),k.end()); //min
+    binary_search(k.begin(),k.end(),2); //binary search
+    lower_bound(k.begin(),k.end(),6);
+    upper_bound(k.begin(),k.end(),3);
+
 
     //iteration
     for(auto x:k)
