@@ -36,4 +36,7 @@ int main()
 
     rotate(k,1); //rotation
 
+    cout<<*max_element(k.begin(),k.end());
+    cout<<*min_element(k.begin(),k.end());
+
 }

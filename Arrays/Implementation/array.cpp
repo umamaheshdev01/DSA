@@ -31,6 +31,18 @@ class Array{
         }
     }
 
+    //get
+    int get(int i)
+    {
+        if(i<index && i>-1)
+        {
+             return A[i];
+        }
+
+        cout<<"The index doesnt exist at all";
+
+    }
+
     //Display
     void display()
     {
