@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Linear Search
 int linearSearch(int k,int a[],int n)
 {
     for(int i=0;i<n;i++)
@@ -14,6 +15,8 @@ int linearSearch(int k,int a[],int n)
     return -1;
 }
 
+
+//Binary Search
 int binarySearch(int k,int a[],int n)
 {
     int l=0;
@@ -21,7 +24,7 @@ int binarySearch(int k,int a[],int n)
 
     while(l<=h)
     {
-        int mid=(l+h)/2;
+        int mid=l+(h-l)/2;
 
         if(a[mid]==k)
         {
