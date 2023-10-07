@@ -23,9 +23,46 @@ void insertionSort(vector<int> &k)
 }
 
 //Bubble Sort
-void bubbleSort(vector<int> A)
+void bubbleSort(vector<int> &A)
 {
-    
+    int n= A.size();
+
+    for(int i=0;i<n;i++)
+    {
+        bool flag = true;
+        for(int j=0;j<n-i;j++)
+        {
+            if(A[j]>A[j+1])
+            {
+                swap(A[j],A[j+1]);
+                flag = false;
+            }
+        }
+
+        if(flag) break;
+    }
+}
+
+//Selection Sort
+void selectionSort(vector<int> &A)
+{
+    int n=A.size();
+
+    for(int i=0;i<n-1;i++)
+    {
+        int mini=i;
+
+        for(int j=i+1;j<n;j++)
+        {
+            if(A[j]<A[mini])
+            {
+                mini=j;
+            }
+        }
+
+        swap(A[i],A[mini]);
+
+    }
 }
 
 int main()
