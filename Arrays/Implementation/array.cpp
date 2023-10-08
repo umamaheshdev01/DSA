@@ -76,45 +76,6 @@ class Array{
         return -1;
     }
 
-    //Sort Array
-    void sortArray()
-    {
-        sort(A,A+index);
-    }
-
-
-    //Binary Search
-    int binarySearch(int k)
-    {
-        //This works only when sorted
-        sortArray();
-
-        int low = 0;
-        int high = index-1;
-
-        while(low<=high)
-        {
-            int mid = (low+high)/2;
-
-            if(A[mid]==k)
-            {
-                cout<<"The element found at index "<<mid<<endl;
-                return mid;
-            }
-            else if(A[mid]>k)
-            {
-                high=mid-1;
-            }
-            else
-            {
-                low=mid+1;
-            }
-        }
-
-        cout<<"The element not found"<<endl;
-        return -1;
-    }
-
     //length
     int length()
     {
@@ -209,8 +170,4 @@ int main()
     arr.insert(21);
     arr.insert(1);
     
-    arr.printSubArrays();
-
-    
-
 }
