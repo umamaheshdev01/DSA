@@ -11,5 +11,4 @@ int main()
 
     s.find(1); //find
 
-
 }
