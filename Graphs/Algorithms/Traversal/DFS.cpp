@@ -35,30 +35,49 @@ class Graph{
     }
 };
 
-void BFS(Graph g,int start)
+vector<bool> visited(5,false);
+void DFS(int start,Graph g)
 {
-      vector<bool> visited(g.V,false);
-      queue<int> q;
+     visited[start] = true;
+     cout<<start<<" ";
 
-      visited[start] = true;
-      q.push(start);
-
-      while(!q.empty())
-      {
-        int cur = q.front();
-        cout<<cur<<" ";
-        q.pop();
-
-        for(auto neighbour:g.adjacencyList[cur])
+     for(auto x:g.adjacencyList[start])
+     {
+        if(!visited[x])
         {
-            if(!visited[neighbour])
+            DFS(x,g);
+        }
+     }
+}
+
+void DFS2(int start,Graph g)
+{
+    vector<bool> visited(g.V,false);
+    stack<int> s;
+
+    s.push(start);
+
+    while(!s.empty())
+    {
+        int cur = s.top();
+        s.pop();
+
+        if(!visited[cur])
+        {
+            cout<<cur<<" ";
+            visited[cur]=true;
+        }
+
+        for(auto x:g.adjacencyList[cur])
+        {
+            if(!visited[x])
             {
-                visited[neighbour]=true;
-                q.push(neighbour);
+                s.push(x);
             }
         }
-      }
-      
+    }
+
+
 }
 
 int main()
@@ -68,5 +87,5 @@ int main()
     g.addEdge(1,3);
 
     g.print();
-    BFS(g,0);
+    DFS(0,g);
 }

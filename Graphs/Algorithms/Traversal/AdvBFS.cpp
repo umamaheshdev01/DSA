@@ -35,9 +35,9 @@ class Graph{
     }
 };
 
-void BFS(Graph g,int start)
+void BFS(Graph g,int start,vector<bool> &visited)
 {
-      vector<bool> visited(g.V,false);
+
       queue<int> q;
 
       visited[start] = true;
@@ -61,6 +61,18 @@ void BFS(Graph g,int start)
       
 }
 
+void mainBFS(Graph g)
+{
+    vector<bool> visited(g.V,false);
+    for(int i=0;i<g.V;i++)
+    {
+        if(!visited[i])
+        {
+            BFS(g,i,visited);
+        }
+    }
+}
+
 int main()
 {
     Graph g(5);
@@ -68,5 +80,5 @@ int main()
     g.addEdge(1,3);
 
     g.print();
-    BFS(g,0);
+    mainBFS(g);
 }
